@@ -5,9 +5,8 @@ def get_domain_info(domain):
     try:
         domain_info = whois.query(domain)
         
-        # Check and format the creation date
         if isinstance(domain_info.creation_date, list):
-            creation_date = domain_info.creation_date[0]  # Take the first date if it's a list
+            creation_date = domain_info.creation_date[0]  
         else:
             creation_date = domain_info.creation_date
 
@@ -26,7 +25,6 @@ def get_domain_info(domain):
         print(f'Error fetching WHOIS information: {e}')
         return None
 
-# Example usage
 if __name__ == "__main__":
     domain = "puc-rio.br"
     info = get_domain_info(domain)
